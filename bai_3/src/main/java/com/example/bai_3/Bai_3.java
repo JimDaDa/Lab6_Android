@@ -46,7 +46,7 @@ public class Bai_3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bai3);
         initView();
-        addData();
+        //addData();
         setAdapter();
 
     }
@@ -80,46 +80,13 @@ public class Bai_3 extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
 
-
-//       int id = item.getItemId();
-//
-//        switchEvent.setChecked(false);
-//
-//
-//        switch (id){
-//            case R.id.add:
-//                openCreateNewEventActivity();
-//                return true;
-//
-//            case R.id.sw_event:
-//
-//                switchEvent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//                    @Override
-//                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                        if (isChecked) {
-//
-//                            Toast.makeText(Bai_3.this, "Click", Toast.LENGTH_SHORT).show();
-//                        } else {
-//                            Toast.makeText(Bai_3.this, "False", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//
-//                return true;
-//            case R.id.removeAll:
-//                showDialog();
-//                return true;
-//            case R.id.about:
-//                showAboutDialog();
-//                return true;
-//        }
-     //   return super.onOptionsItemSelected(item);
     }
 
-    private void clickDeleteAll(){
-        event.clear();
-        adapter.notifyDataSetChanged();
-    }
+//    private void clickDeleteAll(){
+//
+//      //  event.clear();
+//        adapter.notifyDataSetChanged();
+//    }
     private void showDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm");
@@ -127,7 +94,8 @@ public class Bai_3 extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                clickDeleteAll();
+                mDbHelper.deleteAllEvents();
+                showAllEventsFromDatabase();
                 Toast.makeText(Bai_3.this, "The selected item is deleted!", Toast.LENGTH_LONG).show();
             }
         });
@@ -146,13 +114,14 @@ public class Bai_3 extends AppCompatActivity {
     private void openCreateNewEventActivity() {
         // create intent to call NewEventActivity
         Intent intent = new Intent(Bai_3.this, AddEvent.class);
-     //   intent.putExtra(INTENT_EVENT_ACTION, INTENT_NEW_EVENT_ACTION);
+        intent.putExtra(INTENT_EVENT_ACTION, INTENT_NEW_EVENT_ACTION);
+        intent.putExtra(INTENT_EVENT_ACTION, INTENT_EDIT_EVENT_ACTION);
         launcherActivity.launch(intent);
 
     }
     private void showAllEventsFromDatabase() {
         event  = mDbHelper.getAllEvents(switchEvent.isChecked());
-
+        setAdapter();
     }
 
     final ActivityResultLauncher<Intent> launcherActivity = registerForActivityResult(
@@ -204,11 +173,11 @@ public class Bai_3 extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(adapter);
     }
-    private void addData(){
-
-        event.add(new Event("Sinh hoat chu nhiem", "c120", "09/03/2020", "04:43"));
-        event.add(new Event("Huong dan luan van", "c120", "09/03/2020", "04:43"));
-
-    }
+//    private void addData(){
+//
+//        event.add(new Event("Sinh hoat chu nhiem", "c120", "09/03/2020", "04:43"));
+//        event.add(new Event("Huong dan luan van", "c120", "09/03/2020", "04:43"));
+//
+//    }
 
 }
