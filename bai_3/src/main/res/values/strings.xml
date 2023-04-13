@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">bai_3</string>
+    <string name="name">Name</string>
+    <string name="place">Place</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
+    <string name="save">Save</string>
+    <string name="add">add</string>
+    <string name="about">About</string>
+    <string name="removeall">RemoveAll</string>
+</resources>

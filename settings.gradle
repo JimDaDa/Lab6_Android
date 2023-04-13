@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "Lab6_51900491_CaoNguyenKyDuyen"
 include ':bai_1'
 include ':bai_2'
+include ':bai_3'
