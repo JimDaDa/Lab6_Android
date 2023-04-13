@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lab6_51900491_CaoNguyenKyDuyen</string>
+    <string name="app_startup_time">App Startup Time:</string>
+    <string name="app_startup_time_will_be_displayed_here">App Startup Time will be displayed here!</string>
+</resources>

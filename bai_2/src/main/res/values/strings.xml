@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">bai_2</string>
+    <string name="write_internal_file">Write Internal</string>
+    <string name="your_content">Type content</string>
+    <string name="read_internal_file">Read Internal</string>
+    <string name="read_external_file">Read External</string>
+    <string name="write_external_file">Write External</string>
+    <string name="the_internal_file_s_path">the internal file\'s path:</string>
+    <string name="the_internal_file_s_path_value">the internal file\'s path value</string>
+    <string name="the_sd_file_s_path">the SD file\'s path:</string>
+    <string name="the_sd_file_s_path_value">the SD file\'s path value</string>
+</resources>
